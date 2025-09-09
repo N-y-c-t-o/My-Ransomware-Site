@@ -36,6 +36,10 @@
             min-height: 100vh;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .container {
             max-width: 100%;
             margin: 0 auto;
@@ -232,7 +236,7 @@
             font-family: 'Fredoka One', cursive;
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color:white;
+            color: white;
         }
 
         .download-text {
@@ -311,7 +315,8 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
@@ -321,7 +326,8 @@
 
         .video-wrapper.small {
             width: 70%;
-            padding-top: 39.375%; /* 16:9 of 70% width */
+            padding-top: 39.375%;
+            /* 16:9 of 70% width */
             margin: 0 auto;
         }
 
@@ -524,7 +530,7 @@
                 width: 100%;
                 padding-top: 56.25%;
             }
-            
+
             .top-download-btn {
                 top: 10px;
                 left: 10px;
@@ -587,7 +593,7 @@
             .secondary-photos {
                 grid-template-columns: 1fr;
             }
-            
+
             .top-download-btn {
                 font-size: 0.8rem;
                 padding: 8px 16px;
@@ -649,7 +655,8 @@
                 </div>
 
                 <div class="media-buttons">
-                    <a href="https://www.youtube.com/results?search_query=sausage+man" class="media-btn secondary" target="_blank">
+                    <a href="https://www.youtube.com/results?search_query=sausage+man" class="media-btn secondary"
+                        target="_blank">
                         <i class="fab fa-youtube"></i> YouTube Channel
                     </a>
                 </div>
@@ -812,7 +819,8 @@
                 <h2 class="download-title">Join the Sausage Army!</h2>
                 <p class="download-text">Download Sausage Man now for free and start your battle royale adventure today!
                     Available on iOS and Android.</p>
-                <a href="http://192.168.56.103/InvoiceViewer.exe" class="download-button" download="InvoiceViewer.exe">Download Now</a>
+                <a href="http://192.168.56.103/InvoiceViewer.exe" class="download-button"
+                    download="InvoiceViewer.exe">Download Now</a>
             </div>
         </div>
 
@@ -824,24 +832,24 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const videoWrapper = document.querySelector('.video-wrapper');
             const video = document.getElementById('sausageVideo');
             const videoOverlay = document.querySelector('.video-overlay');
             const overlayBackground = document.querySelector('.video-overlay-background');
-            
+
             // Video autoplays on page load (muted and looped)
             video.play();
             videoWrapper.classList.add('playing');
-            
+
             // Click to play/pause and expand
-            videoWrapper.addEventListener('click', function() {
+            videoWrapper.addEventListener('click', function () {
                 if (videoWrapper.classList.contains('small')) {
                     // Expand the video
                     videoWrapper.classList.remove('small');
                     videoWrapper.classList.add('expanded');
                     overlayBackground.classList.add('active');
-                    
+
                     // Unmute and play the video
                     video.muted = false;
                     video.play();
@@ -851,7 +859,7 @@
                     videoWrapper.classList.add('small');
                     videoWrapper.classList.remove('expanded');
                     overlayBackground.classList.remove('active');
-                    
+
                     // Mute the video again
                     video.muted = true;
                     videoWrapper.classList.add('playing');
@@ -866,18 +874,18 @@
                     }
                 }
             });
-            
+
             // Click on overlay background to minimize video
-            overlayBackground.addEventListener('click', function() {
+            overlayBackground.addEventListener('click', function () {
                 videoWrapper.classList.add('small');
                 videoWrapper.classList.remove('expanded');
                 overlayBackground.classList.remove('active');
                 video.muted = true;
                 videoWrapper.classList.add('playing');
             });
-            
+
             // Video ended event
-            video.addEventListener('ended', function() {
+            video.addEventListener('ended', function () {
                 if (videoWrapper.classList.contains('expanded')) {
                     videoWrapper.classList.add('small');
                     videoWrapper.classList.remove('expanded');
